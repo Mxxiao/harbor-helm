@@ -57,6 +57,8 @@ spec:
       - name: registry-config
         configMap:
           name: "{{ template "harbor.fullname" . }}-registry"
+
+          
   {{- if not .Values.registry.objectStorage }}
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:

@@ -59,6 +59,7 @@ spec:
           items:
           - key: secretKey
             path: key
+            
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
   - metadata:

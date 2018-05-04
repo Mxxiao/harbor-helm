@@ -41,6 +41,7 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pvc
       {{- end -}}
+      
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
   - metadata:
