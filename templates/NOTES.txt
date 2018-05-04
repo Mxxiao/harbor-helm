@@ -18,3 +18,4 @@ Access Harbor UI via https://{{ .Values.externalDomain }}
 Login Harbor with Docker CLI:
 
   docker login {{ .Values.externalDomain }}
+  nfs command: showmount -e 192.168.63.55 #查看本机挂载情况   /nfsdir

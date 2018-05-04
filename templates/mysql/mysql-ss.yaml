@@ -39,7 +39,7 @@ spec:
       volumes:
       - name: mysql-data
         persistentVolumeClaim:
-          claimName: harbor-pvc
+          claimName: mysql-pvc
       {{- end -}}
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
