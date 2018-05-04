@@ -51,7 +51,7 @@ spec:
       {{- if not .Values.persistence.enabled }}
       - name: adminserver-config
         persistentVolumeClaim:
-          claimName: harbor-pvc
+          claimName: adminserver-pvc
       {{- end }}
       - name: adminserver-key
         secret:
