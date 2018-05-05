@@ -59,21 +59,3 @@ spec:
           items:
           - key: secretKey
             path: key
-            
-  {{- if .Values.persistence.enabled }}
-  volumeClaimTemplates:
-  - metadata:
-      name: adminserver-config
-    spec:
-      accessModes: [{{ .Values.adminserver.volumes.config.accessMode | quote }}]
-      {{- if .Values.adminserver.volumes.config.storageClass }}
-      {{- if (eq "-" .Values.adminserver.volumes.config.storageClass) }}
-      storageClassName: ""
-      {{- else }}
-      storageClassName: "{{ .Values.adminserver.volumes.config.storageClass }}"
-      {{- end }}
-      {{- end }}
-      resources:
-        requests:
-          storage: {{ .Values.adminserver.volumes.config.size | quote }}
-  {{- end -}}

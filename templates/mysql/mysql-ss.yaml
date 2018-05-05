@@ -41,23 +41,4 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pvc
       {{- end -}}
-      
-  {{- if .Values.persistence.enabled }}
-  volumeClaimTemplates:
-  - metadata:
-      name: "mysql-data"
-      labels:
-{{ include "harbor.labels" . | indent 8 }}
-    spec:
-      accessModes: [{{ .Values.mysql.volumes.data.accessMode | quote }}]
-      {{- if .Values.mysql.volumes.data.storageClass }}
-      {{- if (eq "-" .Values.mysql.volumes.data.storageClass) }}
-      storageClassName: ""
-      {{- else }}
-      storageClassName: "{{ .Values.mysql.volumes.data.storageClass }}"
-      {{- end }}
-      {{- end }}
-      resources:
-        requests:
-          storage: {{ .Values.mysql.volumes.data.size | quote }}
-  {{- end -}}
+    
